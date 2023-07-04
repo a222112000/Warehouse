@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -50,30 +51,29 @@ fun TransferScreen(viewModel: PickerViewModel = hiltViewModel()) {
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center
             )
-            LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 150.dp), modifier = Modifier.padding(8.dp)) {
+            LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 250.dp), modifier = Modifier.padding(8.dp)) {
                 items(viewModel.sourceList) {
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().padding(3.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(text = "${it.name}", fontSize = 13.sp)
-                        TextButton(onClick = {
-                            viewModel.addToDispatcher(it)
-                            viewModel.removeItemFromWareHouse(it)
-                        }) {
-                            Text(
-                                text = "Pick Up",
-                                fontSize = 12.sp,
-                                modifier = Modifier.background(Color.White)
-                            )
-                        }
+                        Text(
+                            text = "Pick Up",
+                            fontSize = 12.sp,
+                            modifier = Modifier.background(Color.White).clickable {
+                                viewModel.addToDispatcher(it)
+                                viewModel.removeItemFromWareHouse(it)
+                            }
+                        )
                     }
                 }
             }
         }
+        Spacer(modifier = Modifier.height(13.dp))
         Card(modifier = Modifier.border(width = 1.dp, color = Color.Cyan)) {
             Text(
-                "Dispatch Items",
+                "Picked Items",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(3.dp)
@@ -129,7 +129,7 @@ fun PreviewTransferScreen( viewModel: PickerViewModel = hiltViewModel()) {
 fun EmptyList(){
     Row(modifier = Modifier.fillMaxWidth()) {
         Text(
-            "Dispatch Items",
+            "Picked Items",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(3.dp)

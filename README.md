@@ -11,6 +11,9 @@
     <td><img width="411" alt="Screenshot 2023-07-04 at 23 15 20" src="https://github.com/a222112000/Warehouse/assets/26028054/9923e335-3f72-4a8b-89d5-c1cd82155f08">
 </td></tr>
   <tr><td><img width="396" alt="Screenshot 2023-07-05 at 07 44 28" src="https://github.com/a222112000/Warehouse/assets/26028054/e8ec9daa-03cc-4acf-aca9-6b400b17ff8b"></td><td><img width="394" alt="Screenshot 2023-07-05 at 07 44 49" src="https://github.com/a222112000/Warehouse/assets/26028054/abc0f4d0-6936-46c2-bc5d-bf9feaffb1f9"></td></tr>
+  <tr><td><img width="404" alt="Screenshot 2023-07-05 at 15 47 13" src="https://github.com/a222112000/Warehouse/assets/26028054/e1b69934-6487-4ef6-b0b4-2489a344f229">
+</td><td><img width="385" alt="Screenshot 2023-07-05 at 15 47 40" src="https://github.com/a222112000/Warehouse/assets/26028054/d722db62-b007-43c6-9dc9-a1270bc85d61">
+</td></tr>
 </table>
 
 

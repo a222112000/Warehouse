@@ -54,17 +54,22 @@ fun TransferScreen(viewModel: PickerViewModel = hiltViewModel()) {
             LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 250.dp), modifier = Modifier.padding(8.dp)) {
                 items(viewModel.sourceList) {
                     Row(
-                        modifier = Modifier.fillMaxWidth().padding(3.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(3.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(text = "${it.name}", fontSize = 13.sp)
                         Text(
-                            text = "Pick Up",
+                            text = "Pick Item", style = TextStyle(color = Color.White),
                             fontSize = 12.sp,
-                            modifier = Modifier.background(Color.White).clickable {
-                                viewModel.addToDispatcher(it)
-                                viewModel.removeItemFromWareHouse(it)
-                            }
+                            modifier = Modifier
+                                .background(Color.Blue)
+                                .padding(4.dp)
+                                .clickable {
+                                    viewModel.addToDispatcher(it)
+                                    viewModel.removeItemFromWareHouse(it)
+                                }
                         )
                     }
                 }
@@ -91,22 +96,24 @@ fun TransferScreen(viewModel: PickerViewModel = hiltViewModel()) {
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(text = "${it.name}")
+                            Text(text = it.name)
                             Row() {
-                                TextButton(
-                                    onClick = {
+                                Text(
+                                    text = "Dispatch Item", style = TextStyle(color = Color.White),
+                                    modifier = Modifier.padding(8.dp).background(color = Color.Green)
+                                )
+                                Column(modifier = Modifier.padding(start = 9.dp)) {
 
-                                    },
-                                ) {
-                                    Text(text = "Dispatch")
-                                }
-                                TextButton(
-                                    onClick = {
-                                        viewModel.removeItemFromDispatcher(it)
-                                        viewModel.addToWarehouse(item = it)
-                                    },
-                                ) {
-                                    Text(text = "To Warehouse")
+                                    Text(
+                                        text = "Return To Warehouse",
+                                        style = TextStyle(color = Color.White),
+                                        modifier = Modifier.padding(4.dp)
+                                            .background(color = Color.Red)
+                                            .clickable {
+                                                viewModel.removeItemFromDispatcher(it)
+                                                viewModel.addToWarehouse(item = it)
+                                            },
+                                    )
                                 }
                             }
                         }
